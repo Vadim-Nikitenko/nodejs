@@ -7,7 +7,7 @@ const mainAsync = require('./app_async');
 async function run() {
     const arrLength = 300000;
     const sync = main(arrLength);
-    let async = await mainAsync(arrLength);
+    const async = await mainAsync(arrLength);
 
     console.assert(sync.count === async.count);
     console.log(`В одном потоке: ${sync.duration}
