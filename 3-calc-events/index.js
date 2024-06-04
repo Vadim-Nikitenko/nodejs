@@ -26,4 +26,4 @@ if (!availableOperations.filter(o => o.operation === operation)) {
     throw new Error(`Unsupported operation: ${operation}. Use add, divide, subtract or multiply`);
 }
 
-emitter.emit(operation, parsedNum1, parsedNum2, operation);
+emitter.emit(operation, parsedNum1, parsedNum2);
