@@ -1,37 +1,26 @@
-let num1 = process.argv[2];
-let num2 = process.argv[3];
-let operation = process.argv[4];
+/**
+ * run example `node .\index.js 2 2 divide`
+ */
+const num1 = process.argv[2];
+const num2 = process.argv[3];
+const operation = process.argv[4];
+
+const availableOperations = ['add', 'subtract', 'divide', 'multiply']
 
 if (num1 === undefined || num2 === undefined || operation === undefined) {
-    console.error("Usage: node filename <num1> <num2> <operation>");
-    return;
+    throw new Error(`Not all arguments passed. Usage example: node ./filename.js 2 2 add`);
 }
 
-num1 = parseInt(num1);
-num2 = parseInt(num2);
+const parsedNum1 = parseInt(num1);
+const parsedNum2 = parseInt(num2);
 
-if (isNaN(num1) || isNaN(num2)) {
-    console.error("Invalid arguments: <num1> <num2> must be a number");
-    return;
+if (isNaN(parsedNum1) || isNaN(parsedNum2)) {
+    throw new Error(`Invalid arguments. Arguments ${num1} and ${num2} must be a numbers`);
 }
 
-switch (operation) {
-    case 'add':
-        const add = require('./add');
-        console.log(`Adding ${num1} to ${num2} = ${add(num1, num2)}`);
-        return;
-    case 'divide':
-        const divide = require('./divide');
-        console.log(`Dividing ${num1} by ${num2} = ${divide(num1, num2)}`);
-        return;
-    case 'subtract':
-        const subtract = require('./subtract');
-        console.log(`Subtract ${num2} from ${num1} = ${subtract(num1, num2)}`);
-        return;
-    case 'multiply':
-        const multiply = require('./multiply');
-        console.log(`Multiplying ${num1} by ${num2} = ${multiply(num1, num2)}`);
-        return;
-    default:
-        console.error(`Unsupported operation: ${operation}. Use add, divide, subtract or multiply`);
+if (!availableOperations.includes(operation)) {
+    throw new Error(`Unsupported operation: ${operation}. Use add, divide, subtract or multiply`);
 }
+
+const operationUnit = require(`./${operation}`);
+console.log(`Adding ${parsedNum1} to ${parsedNum2} = ${operationUnit(parsedNum1, parsedNum2)}`);
