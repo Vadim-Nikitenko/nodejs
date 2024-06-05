@@ -3,11 +3,11 @@
  */
 
 const emitter = require('./emitter');
+const availableOperations = require('./constant');
 
 const num1 = process.argv[2];
 const num2 = process.argv[3];
 const operation = process.argv[4];
-const availableOperations = require('./constant');
 
 if (num1 === undefined || num2 === undefined || operation === undefined) {
     console.error("Usage: node filename <num1> <num2> <operation>");
@@ -18,7 +18,7 @@ const parsedNum1 = parseInt(num1);
 const parsedNum2 = parseInt(num2);
 
 if (isNaN(parsedNum1) || isNaN(parsedNum2)) {
-    console.error("Invalid arguments: <num1> <num2> must be a number");
+    console.error(`Invalid arguments: ${num1} and ${num2} must be a number`);
     return;
 }
 
