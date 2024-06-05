@@ -4,6 +4,9 @@
  * node ./index.js '1m'
  * node ./index.js 10s
  */
+const notifier = require('node-notifier');
+const {join} = require("node:path");
+
 let timeString = process.argv[2];
 
 if (timeString === undefined) {
@@ -32,4 +35,9 @@ const timeout = timeStringToMillis(timeString);
 
 setTimeout(() => {
     console.log(`Done after timeout: ${timeout} milliseconds`);
+    notifier.notify({
+        title: 'Timer finished',
+        message: `After ${timeout} milliseconds!`,
+        icon: join(__dirname, 'timer.png')
+    });
 }, timeout);
