@@ -1,0 +1,25 @@
+{
+  "name": "9-weather-api",
+  "version": "1.0.0",
+  "description": "weather api",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node ./dist/index.js",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "weather",
+    "api"
+  ],
+  "author": "Vadim Nikitenko",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21"
+  }
+}
