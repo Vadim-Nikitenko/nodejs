@@ -1,14 +1,17 @@
-import express, {Request, Response, Router} from "express";
+import express, { Request, Response, Router } from "express";
 import { getWeather } from "../service/api.service.js";
+import { WeatherDTO } from "../model/WeatherDTO.js";
 
 const weatherRouter: Router = express.Router();
 
 weatherRouter.get("/", async (req: Request, res: Response) => {
   const weather = await getWeather(
-    req.query.q as string,
-    req.query.appId as string,
-    req.query.lang as string,
-    req.query.units as string,
+    new WeatherDTO(
+        req.data?.city,
+        req.data?.units,
+        req.data?.lang,
+        req.data?.appId
+    ),
   );
   res.json(weather);
 });

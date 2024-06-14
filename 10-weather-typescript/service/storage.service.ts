@@ -17,8 +17,9 @@ const updateConfig = async (config: ConfigDTO) => {
     const file: Buffer = await promises.readFile(filePath);
     data = JSON.parse(file.toString());
     for (const key in config) {
-      if (config[key] !== undefined) {
-        data[key] = config[key];
+      const typedKey = key as keyof ConfigDTO;
+      if (config[typedKey] !== "") {
+        data[typedKey] = config[typedKey];
       }
     }
   }
@@ -33,7 +34,7 @@ const getKeyValue = async (key: string) => {
   if (await isExist(filePath)) {
     const file: Buffer = await promises.readFile(filePath);
     const data = JSON.parse(file.toString());
-    return data[key];
+    return data[key].toString();
   }
   return undefined;
 };

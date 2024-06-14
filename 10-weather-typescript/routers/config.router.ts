@@ -1,4 +1,4 @@
-import express, {Router} from "express";
+import express, { Router } from "express";
 import { replaceConfig, updateConfig } from "../service/storage.service.js";
 import { ConfigDTO } from "../model/ConfigDTO.js";
 
