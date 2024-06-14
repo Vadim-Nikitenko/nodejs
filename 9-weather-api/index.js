@@ -20,12 +20,12 @@
 import express from "express";
 import weatherRouter from "./routers/weather.router.js";
 import configRouter from "./routers/config.router.js";
-import authRouter from "./routers/auth.router.js";
+import storageRouter from "./routers/storage.router.js";
 
 const port = 8000;
 const app = express();
 
-app.use("/weather", authRouter);
+app.use("/weather", storageRouter);
 app.use("/weather", weatherRouter);
 app.use("/config", configRouter);
 
