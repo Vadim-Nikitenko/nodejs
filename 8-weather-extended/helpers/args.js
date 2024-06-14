@@ -23,8 +23,7 @@ const getWordsAfterOption = (option, rest) => {
   const words = [];
   let capture = false;
 
-  for (let i = 0; i < rest.length; i++) {
-    const arg = rest[i];
+  for (const arg of rest) {
     if (capture) {
       if (arg.startsWith("-")) {
         capture = false;
