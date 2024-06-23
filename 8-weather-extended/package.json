@@ -1,0 +1,37 @@
+{
+  "name": "cli-weather-util",
+  "version": "1.0.0",
+  "description": "CLI for getting weather",
+  "main": "weather.js",
+  "type": "module",
+  "bin": {
+    "weather": "./weather.js"
+  },
+  "scripts": {
+    "start": "node weather.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cli",
+    "weather"
+  ],
+  "author": "Vadim Nikitenko",
+  "license": "ISC",
+  "homepage": "https://github.com/Vadim-Nikitenko",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vadim-Nikitenko"
+  },
+  "bugs": {
+    "url": "https://github.com/Vadim-Nikitenko",
+    "email": "4415547@gmail.com"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "chalk": "^5.3.0",
+    "dedent-js": "^1.0.1"
+  },
+  "devDependencies": {
+    "prettier": "3.3.0"
+  }
+}
